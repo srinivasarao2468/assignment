@@ -1,8 +1,9 @@
+def DOCKER_HUB_ID = 'srinivasarao2468'
+def IMAGE_NAME = "assignment"
+def IMAGE_VERSION = 'v1'
+
 pipeline {
     agent any
-    def DOCKER_HUB_ID = 'srinivasarao2468'
-    def IMAGE_NAME = "assignment"
-    def IMAGE_VERSION = 'v1'
     stages {
       stage('Build Docker Image'){
         steps{
