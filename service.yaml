@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: assignment
+spec:
+  selector:
+    app: assignment
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 30000
+  type: LoadBalancer
