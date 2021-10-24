@@ -21,8 +21,9 @@ terraform init
 ```
 terraform apply -auto-approve
 ```
-**Note:** The above process will a while.
-
+```diff
+@@ Note: The above process will a while. @@
+```
 ### [Follow the process to get EKS access](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html)
 
 ### Run below command to deploy the pods to eks cluster
