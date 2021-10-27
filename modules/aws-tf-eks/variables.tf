@@ -33,7 +33,10 @@ variable "node_groups" {
     #     min_size     = 1
     #     max_size     = 2
     #   }
-    #   instance_type = "t2.medium"
-    # }
+    #   instance_type = "t3.micro"
+    #}
   }
+}
+variable "tags"{
+default = {}
 }

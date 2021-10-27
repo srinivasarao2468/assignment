@@ -39,6 +39,18 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
   role       = aws_iam_role.node_group_role.name
 }
 
+resource "aws_iam_policy" "auto_scale_policy" {
+  name        = "${var.app_name}-${terraform.workspace}-auto-scale-policy"
+  path        = "/"
+  description = "${var.app_name} ${terraform.workspace} auto scale policy"
+  policy      = templatefile("${path.module}/policies/auto-scaling-policy.json", {})
+}
+
+resource "aws_iam_role_policy_attachment" "auto_scale_policy_attachment" {
+  policy_arn = aws_iam_policy.auto_scale_policy.arn
+  role       = aws_iam_role.node_group_role.name
+}
+
 ###==========================================================================================
 # EKS Fargate Profile Roles and Policies
 ###==========================================================================================

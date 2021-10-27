@@ -3,12 +3,12 @@ provider "aws" {
 }
 
 module "networking" {
-  source   = "./modules/networking"
+  source   = "./modules/aws-tf-network"
   app_name = var.app_name
 }
 
 module "eks" {
-  source             = "./modules/eks"
+  source             = "./modules/aws-tf-eks"
   subnet_ids         = module.networking.pub_sub_ids
   private_subnet_ids = module.networking.pri_sub_ids
   app_name           = var.app_name

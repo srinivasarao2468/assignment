@@ -21,6 +21,9 @@ resource "aws_eks_node_group" "eks_node_group" {
     aws_iam_role_policy_attachment.AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly,
   ]
+  lifecycle {
+    ignore_changes = [scaling_config[0].desired_size]
+  }
 }
 
 ###==========================================================================================
